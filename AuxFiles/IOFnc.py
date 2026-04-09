@@ -68,3 +68,26 @@ def tabla_latex_resultados(resultados):
     latex.append("\\end{table}")
     
     return "\n".join(latex)
+
+
+
+
+
+def potencia(V,R):
+    """
+    Calcula la potencia disipada en una resistencia R dada una tensión V.
+    
+    Parámetros:
+        V : array (voltaje)
+        R : resistencia (ohmios)
+    
+    Devuelve:
+        P : array (potencia en vatios)
+    """
+    P = V**2 / R
+    return P
+
+
+def modelo(R, a,b):
+    return a / R + b
+
