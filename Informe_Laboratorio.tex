@@ -7,6 +7,8 @@
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{siunitx}
+\usepackage{subcaption}
+\sisetup{output-decimal-marker = {,}}
 \usepackage{geometry}
 \usepackage{float}
 
@@ -31,6 +33,15 @@
 
 %----------------------------------------
 \subsection{Introducción}
+La práctica se desarrolló utilizando una placa de pruebas (protoboard) para el montaje de los distintos circuitos eléctricos, garantizando conexiones estables y de baja resistencia entre los componentes. Se empleó un polímetro para la medida de magnitudes eléctricas (resistencia, tensión e intensidad), seleccionando en cada caso la escala adecuada.
+
+En primer lugar, se midieron varias resistencias individuales, comparando los valores experimentales obtenidos con el polímetro con sus valores nominales, con el objetivo de evaluar posibles discrepancias asociadas a tolerancias de fabricación.
+
+Posteriormente, se montaron distintos circuitos resistivos sencillos en la protoboard. Sobre estos montajes se realizaron medidas de tensiones e intensidades en diferentes puntos del circuito, con el fin de comprobar experimentalmente las leyes de Kirchhoff.
+
+A continuación, se construyeron configuraciones específicas para el estudio de los teoremas de Thevenin y Norton. Se determinaron los circuitos equivalentes correspondientes a partir de medidas experimentales, verificando la equivalencia entre ambos modelos.
+
+Finalmente, se analizó el teorema de transferencia máxima de potencia, variando la resistencia de carga y midiendo la potencia disipada en la misma, con el objetivo de identificar la condición de máxima transferencia.
 
 %----------------------------------------
 \subsection{Resistencias individuales}
@@ -55,28 +66,640 @@ Resistencia & Fabricación (k$\Omega$) & Polímetro (k$\Omega$) & Discrepancia (
 %----------------------------------------
 \subsection{Ley de Ohm}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figuras/OhmR1.png}
+    \caption{Ajuste lineal de la ley de Ohm para la resistencia R1.}
+    \label{fig:ohm_R1}
+\end{figure}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Magnitud} & \textbf{Valor} \\
+        \hline
+        Resistencia nominal (R1) & 0.267 k$\Omega$ \\
+        \hline
+        Pendiente (R) & $(0.2778 \pm 0.0020)$ k$\Omega$ \\
+        \hline
+        Ordenada en el origen & $(-0.0538 \pm 0.0014)$ V \\
+        \hline
+        Coeficiente de determinación ($R^2$) & 0.99957 \\
+        \hline
+    \end{tabular}
+    \caption{Parámetros del ajuste lineal de la ley de Ohm para la resistencia R1.}
+    \label{tab:ohm_R1}
+\end{table}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figuras/OhmR2.png}
+    \caption{Ajuste lineal de la ley de Ohm para la resistencia R2.}
+    \label{fig:ohm_R2}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Magnitud} & \textbf{Valor} \\
+        \hline
+        Resistencia nominal (R2) & 1.607 k$\Omega$ \\
+        \hline
+        Pendiente (R) & $(1.6200 \pm 0.0081)$ k$\Omega$ \\
+        \hline
+        Ordenada en el origen & $(-0.0706 \pm 0.0054)$ V \\
+        \hline
+        Coeficiente de determinación ($R^2$) & 0.99980 \\
+        \hline
+    \end{tabular}
+    \caption{Parámetros del ajuste lineal de la ley de Ohm para la resistencia R2.}
+    \label{tab:ohm_R2}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figuras/OhmR3.png}
+    \caption{Ajuste lineal de la ley de Ohm para la resistencia R3.}
+    \label{fig:ohm_R3}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Magnitud} & \textbf{Valor} \\
+        \hline
+        Resistencia nominal (R3) & 0.557 k$\Omega$ \\
+        \hline
+        Pendiente (R) & $(0.5700 \pm 0.0036)$ k$\Omega$ \\
+        \hline
+        Ordenada en el origen & $(-0.0617 \pm 0.0024)$ V \\
+        \hline
+        Coeficiente de determinación ($R^2$) & 0.99968 \\
+        \hline
+    \end{tabular}
+    \caption{Parámetros del ajuste lineal de la ley de Ohm para la resistencia R3.}
+    \label{tab:ohm_R3}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figuras/OhmR4.png}
+    \caption{Ajuste lineal de la ley de Ohm para la resistencia R4.}
+    \label{fig:ohm_R4}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Magnitud} & \textbf{Valor} \\
+        \hline
+        Resistencia nominal (R4) & 10 k$\Omega$ \\
+        \hline
+        Pendiente (R) & $(9.9470 \pm 0.0937)$ k$\Omega$ \\
+        \hline
+        Ordenada en el origen & $(-0.0053 \pm 0.0629)$ V \\
+        \hline
+        Coeficiente de determinación ($R^2$) & 0.99929 \\
+        \hline
+    \end{tabular}
+    \caption{Parámetros del ajuste lineal de la ley de Ohm para la resistencia R4.}
+    \label{tab:ohm_R4}
+    
+    
+\begin{table}[H]
+\centering
+\begin{tabular}{ccc}
+\hline
+Resistencia & $R \pm \sigma_R$ (k$\Omega$) & $R^2$ \\
+\hline
+R1 & $0.278 \pm 0.002$ & 0.26700 \\
+R2 & $1.620 \pm 0.008$ & 0.99968 \\
+R3 & $0.570 \pm 0.004$ & 0.55700 \\
+R4 & $9.947 \pm 0.094$ & 0.99929 \\
+\hline
+\end{tabular}
+\caption{Resultados del ajuste lineal V-I}
+\end{table} 
+    
+\end{table}
 %----------------------------------------
 \subsection{Resistencia en un circuito}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figuras/Circuito1.png}
+    \caption{Circuito}
+    \label{fig:Circuito}
+\end{figure}
+
+$R_{\text{eq}} = R_1 + \left( \frac{1}{\frac{1}{R_3} + \frac{1}{R_2 + R_4}} \right)$
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Método} & \textbf{Resistencia equivalente ($\Omega$)} \\
+        \hline
+        Calculada & $\SI{805.2105}{}$ \\
+        \hline
+        Medida con polímetro & \SI{805}{} \\
+        \hline
+    \end{tabular}
+    \caption{Comparación entre la resistencia equivalente calculada y la medida experimentalmente.}
+    \label{tab:req}
+\end{table}
 
 %----------------------------------------
 \subsection{Leyes de Kirchhoff}
 
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Resistencia} & \textbf{Corriente (mA)} $\pm \SI{0.05}{}$ \\
+        \hline
+        R1 & 6.36 \\
+        \hline
+        R3 & -6.04 \\
+        \hline
+        R2 & -0.29 \\
+        \hline
+    \end{tabular}
+    \caption{Corrientes medidas en los nudos del circuito para la verificación de la ley de corrientes de Kirchhoff.}
+    \label{tab:kirchhoff_nudos_corriente}
+\end{table}
+
+
+
+Los resultados obtenidos permiten verificar la ley de corrientes de Kirchhoff. En el nudo analizado, la corriente entrante ($6.36\ \text{mA}$) coincide, dentro del error experimental, con la suma de las corrientes salientes ($6.04 + 0.29 = 6.33\ \text{mA}$). La pequeña discrepancia observada puede atribuirse a las incertidumbres en la medida y a las tolerancias de los componentes, confirmando así la validez de la ley en el circuito estudiado.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|S|S|S|S|}
+        \hline
+        \textbf{Resistencia} & {R1} & {R2} & {R3} & {R4} \\
+        \hline
+        {\textbf{Caída de potencial (V)}} & 1.689 & 3.060 & 3.360 & 2.820 \\
+        \hline
+    \end{tabular}
+    \caption{Caídas de potencial medidas en cada resistencia del circuito.}
+    \label{tab:kirchhoff_voltajes}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Malla} & \textbf{Suma de tensiones (V)} \\
+        \hline
+        Malla 1 $(5 - R_1 - R_3)$ & -0.04900 \\
+        \hline
+        Malla 2 $(5 - R_1 - R_4 + R_2 - R_3)$ & 0.19100 \\
+        \hline
+    \end{tabular}
+    \caption{Comprobación de la ley de tensiones de Kirchhoff en las mallas del circuito.}
+    \label{tab:kirchhoff_mallas}
+\end{table}
+
+Los resultados obtenidos permiten verificar la ley de tensiones de Kirchhoff en las mallas del circuito. En ambas mallas, la suma algebraica de las caídas de potencial es próxima a cero, obteniéndose valores de $-0.049\ \text{V}$ y $0.191\ \text{V}$, respectivamente. Estas pequeñas desviaciones respecto al valor teórico nulo pueden atribuirse a errores experimentales, como las incertidumbres en la medida de tensiones y las tolerancias de los componentes. En consecuencia, se confirma que la ley de Kirchhoff se cumple dentro del margen de error experimental.
+
 %----------------------------------------
-\subsection{Teoremas de Thevenin y Norton}
+\subsection{Teoremas de Thévenin y Norton}
+
+Se ha montado el circuito de la Figura~5 con el objetivo de comprobar experimentalmente los teoremas de Thévenin y Norton entre los terminales A y B.
+
+Se realizaron las siguientes medidas:
+
+\begin{itemize}
+    \item Tensión en circuito abierto entre A y B, correspondiente a $V_{th}$.
+    \item Corriente de cortocircuito entre A y B, correspondiente a $I_N$.
+    \item Resistencia equivalente vista desde los terminales, anulando la fuente de tensión (cortocircuitándola).
+\end{itemize}
+
+
+La tensión de Thévenin viene dada por:
+
+\[
+V_{th} = \frac{V R_2}{R_1 + R_2}
+\]
+
+La resistencia equivalente:
+
+\[
+R_{th} = R_3 + R_4 + \frac{R_1 R_2}{R_1 + R_2}
+\]
+
+La corriente de Norton se obtiene como:
+
+\[
+I_N = \frac{V_{th}}{R_{th}}
+\]
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\hline
+Magnitud & Teórico & Experimental & Error (\%) \\
+\hline
+$V_{th}$ (V) & 4.287 & 4.35 & 1.47 \\
+$I_N$ (mA) & 0.397 & 0.40 & 0.76 \\
+$R_{th}$ (k$\Omega$) & 10.786 & 10.82 & 0.32 \\
+\hline
+\end{tabular}
+\caption{Comparación entre valores teóricos y experimentales}
+\end{table}
+
+
+Los resultados experimentales concuerdan con los valores teóricos dentro de un margen de error inferior al 2\%. Las pequeñas discrepancias se atribuyen a las tolerancias de las resistencias y a las limitaciones de los instrumentos de medida. Se verifica así experimentalmente la validez de los teoremas de Thévenin y Norton.
 
 %----------------------------------------
 \subsection{Teorema de transferencia de máxima potencia}
 
+\section{Máxima transferencia de potencia}
+
+Se ha estudiado experimentalmente la potencia disipada en una resistencia de carga conectada entre los terminales A y B del circuito, variando su valor y midiendo la tensión en bornes. A partir de estos datos, se ha calculado la potencia disipada y se ha analizado su dependencia con la resistencia.
+
+La potencia en la carga se ha obtenido mediante:
+
+\[
+P = \frac{V^2}{R}
+\]
+
+Teóricamente, la potencia transferida es máxima cuando la resistencia de carga coincide con la resistencia de Thévenin del circuito:
+
+\[
+R_{\text{carga}} = R_{th}
+\]
+
+En este caso, se obtuvo:
+
+\[
+R_{th} = 10.82\,\mathrm{k}\Omega
+\]
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\hline
+Magnitud & Valor & Unidad \\
+\hline
+Potencia máxima & $4.4 \times 10^{-4}$ & W \\
+Resistencia en el máximo & 10040 & $\Omega$ \\
+Resistencia izquierda & 7550 & $\Omega$ \\
+Resistencia derecha & 12940 & $\Omega$ \\
+$R_{th}$ (teórica) & 10820 & $\Omega$ \\
+\hline
+\end{tabular}
+\caption{Resultados experimentales de la potencia en función de la resistencia}
+\end{table}
+
+La Figura~\ref{fig:potencia} muestra la dependencia de la potencia con la resistencia de carga.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ccc}
+\hline
+$V$ (V) & $R$ ($\Omega$) & $P$ (W) \\
+\hline
+\SI{0.448}{} & \SI{1273}{}  & \SI{1.58e-4}{} \\
+\SI{1.590}{} & \SI{6350}{}  & \SI{3.98e-4}{} \\
+\SI{2.110}{} & \SI{10040}{} & \SI{4.43e-4}{} \\
+\SI{2.390}{} & \SI{12940}{} & \SI{4.41e-4}{} \\
+\SI{2.630}{} & \SI{16440}{} & \SI{4.21e-4}{} \\
+\SI{2.870}{} & \SI{20900}{} & \SI{3.94e-4}{} \\
+\SI{3.270}{} & \SI{29700}{} & \SI{3.60e-4}{} \\
+\SI{1.797}{} & \SI{7550}{}  & \SI{4.27e-4}{} \\
+\hline
+\end{tabular}
+\caption{Potencia disipada en función de la resistencia de carga}
+\end{table}
+
+\begin{figure}[h]
+\centering
+% Inserta aquí tu figura exportada desde Python
+\includegraphics[width=0.7\textwidth]{Figuras/Potencia.png}
+\caption{Potencia disipada en función de la resistencia de carga}
+\label{fig:potencia}
+\end{figure}
+
+Se observa que la potencia presenta un máximo para un valor de resistencia cercano a $R_{th}$. El valor teórico $R_{th}=10820\,\Omega$ se encuentra dentro del intervalo definido por las resistencias adyacentes al máximo experimental ($7550\,\Omega$ y $12940\,\Omega$), lo que confirma el teorema de máxima transferencia de potencia. Las discrepancias se deben a la discretización de los valores de resistencia y a las incertidumbres experimentales.
+
 
 \section{El Diodo}
-\subsection{Intro}
+\subsection{Introducción}
+\subsection{Introducción}
+
+El objetivo de esta práctica es estudiar el comportamiento del diodo semiconductor, analizando su curva característica corriente-tensión y comprendiendo su funcionamiento tanto en polarización directa como inversa. Este dispositivo constituye un elemento fundamental en la electrónica, especialmente en aplicaciones relacionadas con la conversión de energía, como las fuentes de alimentación y las celdas solares.
+
+Desde el punto de vista teórico, el comportamiento del diodo real puede describirse mediante la expresión:
+\begin{equation}
+I_d = I_s \left( e^{\frac{q V_d}{\eta k T}} - 1 \right),
+\end{equation}
+donde $I_s$ es la corriente de saturación, $q$ la carga del electrón, $k$ la constante de Boltzmann, $T$ la temperatura absoluta y $\eta$ el factor de idealidad.
+
+En polarización directa ($V_d > 0$), la corriente crece de forma exponencial con la tensión aplicada, pudiéndose aproximar por:
+\begin{equation}
+I_d \simeq I_s e^{\frac{q V_d}{\eta k T}}.
+\end{equation}
+
+En polarización inversa ($V_d < 0$), la corriente se aproxima a un valor constante muy pequeño, dado por:
+\begin{equation}
+I_d \simeq -I_s.
+\end{equation}
+
+El análisis experimental de estas relaciones permite determinar los parámetros característicos del diodo y comprobar la validez del modelo teórico.
+
+Además, el diodo desempeña un papel clave en la rectificación de señales alternas, permitiendo la conversión de corriente alterna en corriente continua. Este principio constituye la base del funcionamiento de las fuentes de alimentación, cuyo estudio se abordará en los siguientes apartados.
+\subsection{Ecuación del diodo}
+\subsubsection{Directa}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{S S S S}
+\hline
+{$V_{\text{aplicada}}$ [V]} & {$V_{\text{resistencia}}$ [mV]} & {$V_{\text{diodo}}$ [V]} & {$I_{\text{diodo}}$ [A]} \\
+\hline
+0   & 0     & 0,0052 & 0 \\
+0,3 & 0,01  & 0,314  & 0,00001 \\
+0,6 & 0,148 & 0,501  & 0,000148 \\
+0,9 & 0,372 & 0,545  & 0,000372 \\
+1,2 & 0,64  & 0,572  & 0,00064 \\
+1,5 & 0,973 & 0,59   & 0,000973 \\
+1,8 & 1,29  & 0,6    & 0,00129 \\
+2   & 1,47  & 0,61   & 0,00147 \\
+3   & 2,39  & 0,631  & 0,00239 \\
+4   & 3,42  & 0,65   & 0,00342 \\
+5   & 4,41  & 0,662  & 0,00441 \\
+6   & 5,44  & 0,673  & 0,00544 \\
+7   & 6,43  & 0,68   & 0,00643 \\
+8   & 7,36  & 0,685  & 0,00736 \\
+\hline
+\end{tabular}
+\caption{Medidas experimentales del diodo en polarización directa.}
+\label{tab:diodo_directa}
+\end{table}
+
+
+Curva $I$--$V$ del diodo en polarización directa junto con el ajuste al modelo exponencial.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{Figuras/iv_directa.png}
+\caption{Curva corriente-tensión del diodo en polarización directa junto con el ajuste al modelo teórico.}
+\label{fig:iv_directa}
+\end{figure}
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{Figuras/log_iv_directa.png}
+\caption{Representación de $\ln(I_d)$ frente a $V_d$ en polarización directa, junto con el ajuste lineal.}
+\label{fig:log_iv_directa}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lc}
+\hline
+Parámetro & Valor \\
+\hline
+Pendiente $a$ ($\si{\volt^{-1}}$) & $18,24 \pm 0,58$ \\
+Ordenada $b = \ln(I_s)$ & $-17,59 \pm 1,00$ \\
+Coeficiente de determinación $R^2$ & $0,989$ \\
+\hline
+\end{tabular}
+\caption{Parámetros obtenidos del ajuste lineal de $\ln(I_d)$ frente a $V_d$.}
+\label{tab:ajuste_diodo}
+\end{table}
+
+El ajuste lineal de la representación de $\ln(I_d)$ frente a $V_d$ muestra una clara relación lineal, lo que confirma el comportamiento exponencial de la corriente en función de la tensión en polarización directa, tal como predice el modelo teórico del diodo.
+
+A partir de la expresión:
+\begin{equation}
+\ln(I_d) = \ln(I_s) + \frac{q}{\eta k T} V_d,
+\end{equation}
+la pendiente de la recta obtenida se identifica con el término $\frac{q}{\eta k T}$, mientras que la ordenada en el origen corresponde a $\ln(I_s)$, donde $I_s$ es la corriente de saturación del diodo.
+
+
+  A partir de la pendiente del ajuste lineal de la representación de $\ln(I_d)$ frente a $V_d$, puede obtenerse el factor de idealidad del diodo usando la relación
+\begin{equation}
+a=\frac{q}{\eta kT},
+\end{equation}
+de donde se despeja
+\begin{equation}
+\eta=\frac{q}{a\,k\,T}.
+\end{equation}
+
+Tomando $T=\SI{300}{\kelvin}$, $q=\SI{1.602e-19}{\coulomb}$, $k=\SI{1.381e-23}{\joule\per\kelvin}$ y la pendiente obtenida en el ajuste,
+\begin{equation}
+a = \SI{18.24 \pm 0.58}{\per\volt},
+\end{equation}
+se obtiene
+\begin{equation}
+\eta = 2,12 \pm 0,07.
+\end{equation}
+
+El valor elevado del coeficiente de determinación ($R^2$ cercano a 1) indica un buen ajuste de los datos experimentales al modelo teórico, validando así la aproximación exponencial en la región de polarización directa estudiada.
+
+Las posibles desviaciones respecto al comportamiento ideal pueden atribuirse a factores como la resistencia interna del diodo, efectos térmicos o limitaciones en la precisión de las medidas experimentales.
+
+\subsubsection{Inversa}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{S S S S}
+\hline
+{$V_{\text{aplicada}}$ [V]} & {$V_{\text{resistencia}}$ [mV]} & {$V_{\text{diodo}}$ [V]} & {$I_{\text{diodo}}$ [A]} \\
+\hline
+0    & 0 & -0,02  & 0 \\
+-0,5 & 0 & -0,516 & 0 \\
+-1   & 0 & -1,101 & 0 \\
+-1,5 & 0 & -1,571 & 0 \\
+-2   & 0 & -2,13  & 0 \\
+-3   & 0 & -3,03  & 0 \\
+-4   & 0 & -4,1   & 0 \\
+-5   & 0 & -5,04  & 0 \\
+-6   & 0 & -6,09  & 0 \\
+-7   & 0 & -7,05  & 0 \\
+-8   & 0 & -8,09  & 0 \\
+\hline
+\end{tabular}
+\caption{Medidas experimentales del diodo en polarización inversa.}
+\label{tab:diodo_inversa}
+\end{table}
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{Figuras/iv_inversa.png}
+\caption{Curva corriente-tensión del diodo en polarización inversa. La corriente medida es prácticamente nula en todo el rango de tensiones.}
+\label{fig:iv_inversa}
+\end{figure}
+
+En la región de polarización inversa no se observa caída de potencial apreciable en la resistencia, lo que implica, a partir de la relación $I = V/R$, que la corriente medida es nula dentro de la resolución experimental.
+
+Este resultado es consistente con el modelo teórico del diodo, según el cual la corriente en polarización inversa se aproxima a la corriente de saturación $I_s$, cuyo valor es extremadamente pequeño. La ausencia de señal en la medida se debe, por tanto, a que dicha corriente es inferior al umbral de detección del sistema de medida empleado.
+
+\subsubsection{Curva completa}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{Figuras/iv_total.png}
+\caption{Curva completa $I$--$V$ del diodo, mostrando las regiones de polarización directa e inversa junto con los ajustes teóricos correspondientes.}
+\label{fig:iv_total}
+\end{figure}
+
+
+La representación conjunta de la curva $I$--$V$ del diodo permite observar claramente las dos regiones de funcionamiento del dispositivo. En polarización directa, la corriente crece de forma exponencial con la tensión aplicada, en buen acuerdo con el modelo teórico ajustado. 
+
+Por el contrario, en polarización inversa la corriente permanece prácticamente nula dentro de la resolución experimental, lo que se corresponde con el régimen de saturación inversa, donde la corriente está limitada por el valor de $I_s$.
+
+Esta representación global pone de manifiesto el comportamiento no lineal característico del diodo semiconductor y su capacidad para conducir corriente de forma asimétrica.
+
+
 \subsection{Fuente de alimentación}
+\subsection{Rectificador de media onda}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{Figuras/MediaOnda.png}
+\caption{Esquema del rectificador de media onda utilizado en la práctica.}
+\label{fig:rectificador_media_onda}
+\end{figure}
 \subsection{Filtrado}
+
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Figuras/Filtado47.jpeg}
+    \caption{$C = \SI{47}{\micro\farad}$}
+    \label{fig:filtrado_47}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Figuras/Fitrado100.jpeg}
+    \caption{$C = \SI{100}{\micro\farad}$}
+    \label{fig:filtrado_100}
+\end{subfigure}
+
+\caption{Señales de salida del rectificador con filtrado para dos valores de capacidad. Se observa la reducción del rizado al aumentar el valor del condensador.}
+\label{fig:filtrado_comparacion}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccc}
+\hline
+$C$ ($\si{\micro\farad}$) & $V_{\text{pp}}$ (V) & $V_{\text{med}}$ (V) \\
+\hline
+47  & 10,4 & 31,1 \\
+100 & 5,6  & 32,2 \\
+\hline
+\end{tabular}
+\caption{Valores de tensión pico a pico (rizado) y tensión media para distintos condensadores de filtrado.}
+\label{tab:filtrado}
+\end{table}
+
+Al añadir un condensador a la salida del rectificador, la señal deja de ser una sucesión de pulsos y pasa a presentar una componente continua dominante con una pequeña oscilación superpuesta, denominada rizado. Este comportamiento se debe a que el condensador se carga cerca de los máximos de la señal rectificada y se descarga a través de la resistencia de carga cuando la tensión de entrada disminuye.
+
+Por tanto, la señal obtenida no es una continua ideal, sino una tensión continua con rizado. La amplitud de dicho rizado depende de la constante de tiempo del circuito, \(\tau = RC\), de modo que al aumentar la capacidad del condensador la descarga es más lenta y la variación de tensión entre máximos consecutivos se reduce.
+
+Este efecto se aprecia claramente al comparar las Figuras~\ref{fig:filtrado_47} y~\ref{fig:filtrado_100}. Para el condensador de \SI{47}{\micro\farad}, el rizado es mayor, mientras que con \SI{100}{\micro\farad} la señal es más suave y se mantiene más próxima al valor máximo entre semiciclos consecutivos.
+
+Este comportamiento se confirma cuantitativamente en la Tabla~\ref{tab:filtrado}, donde se observa que la tensión pico a pico del rizado disminuye de \SI{10,4}{\volt} a \SI{5,6}{\volt} al aumentar la capacidad del condensador. Asimismo, la tensión media aumenta ligeramente, pasando de \SI{31,1}{\volt} a \SI{32,2}{\volt}, lo que indica que la señal permanece durante más tiempo cerca de su valor máximo.
+
+En conjunto, estos resultados ponen de manifiesto que el incremento de la capacidad del condensador mejora el filtrado de la señal, reduciendo el rizado y aproximando la salida a una tensión continua más estable.
+
 \subsection{Regulador de tensión}
 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{Figuras/Rect_media.jpeg}
+\caption{Señal de salida del rectificador de media onda observada en el osciloscopio. Se aprecia cómo el diodo permite el paso de los semiciclos positivos de la señal de entrada, bloqueando los negativos.}
+\label{fig:senal_media_onda}
+\end{figure}
+
+El rectificador de media onda permite obtener una señal unidireccional a partir de una señal alterna. Durante los semiciclos positivos de la tensión de entrada, el diodo se polariza en directa y conduce, permitiendo el paso de corriente a través de la carga. Por el contrario, en los semiciclos negativos, el diodo se polariza en inversa y bloquea el paso de corriente.
+
+Como resultado, la señal de salida presenta únicamente los semiciclos positivos de la señal original, dando lugar a una señal pulsante que, aunque unidireccional, no es aún una señal de corriente continua.
+
+
+\subsubsection{Rectificador de onda completa}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{Figuras/OndaCompleta.png}
+\caption{Esquema del rectificador de onda completa mediante puente de diodos.}
+\label{fig:rectificador_onda_completa}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{Figuras/Rect_completa.jpeg}
+\caption{Señales de entrada y salida del rectificador de onda completa observadas en el osciloscopio. La señal de salida presenta únicamente valores positivos, correspondientes a la rectificación de ambos semiciclos de la señal de entrada.}
+\label{fig:senal_onda_completa}
+\end{figure}
+
+El rectificador de onda completa, implementado mediante un puente de diodos, permite aprovechar ambos semiciclos de la señal de entrada. Durante cada semiciclo, dos de los diodos del puente conducen, de modo que la corriente a través de la carga mantiene siempre el mismo sentido.
+
+Como resultado, la señal de salida presenta una sucesión de semiciclos positivos, con una frecuencia doble respecto a la señal de entrada. En comparación con el rectificador de media onda, este circuito proporciona una señal con menor rizado y un valor medio mayor, lo que lo hace más eficiente para aplicaciones de conversión AC/DC.
+
+
+
+En comparación con el rectificador de media onda, el rectificador de onda completa elimina los intervalos en los que la señal de salida es nula, aprovechando toda la señal de entrada y mejorando significativamente la eficiencia del proceso de rectificación.
 %----------------------------------------
 \subsection{Conclusiones}
 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{Figuras/Regulador.png}
+\caption{Esquema del regulador de tensión basado en el circuito integrado LM317.}
+\label{fig:regulador}
+\end{figure}
+
+El regulador LM317 permite fijar la tensión de salida mediante la relación:
+\begin{equation}
+V_{\text{out}} = 1.25 \left(1 + \frac{R_2}{R_1} \right).
+\end{equation}
+
+Fijando $R_1 = \SI{267}{\ohm}$ y deseando obtener una tensión de salida de $V_{\text{out}} = \SI{5}{\volt}$, se despeja $R_2$:
+\begin{equation}
+5 = 1.25 \left(1 + \frac{R_2}{267} \right),
+\end{equation}
+de donde:
+\begin{equation}
+\frac{R_2}{267} = 3 \quad \Rightarrow \quad R_2 = \SI{801}{\ohm}.
+\end{equation}
+
+En el montaje experimental se empleó un valor comercial de $R_2 = \SI{800}{\ohm}$, lo que conduce a una tensión de salida muy próxima al valor deseado de \SI{5}{\volt}.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{Figuras/Regulador_osciloscopio.jpeg}
+\caption{Señal de salida del regulador LM317 obtenida mediante captura fotográfica del osciloscopio. Se observa una tensión prácticamente constante con un rizado reducido ($V_{pp} \approx \SI{600}{\milli\volt}$) y un valor medio de \SI{4,73}{\volt}.}
+\label{fig:regulador_salida}
+\end{figure}
+
+
+La señal de salida del regulador LM317 se registró mediante una captura fotográfica del osciloscopio. En la figura se observa que la señal de salida corresponde a la traza superior, que a simple vista aparece prácticamente como una línea recta, lo que indica un comportamiento cercano al de una tensión continua ideal.
+
+El valor medio de la tensión es de \SI{4,73}{\volt}, próximo al valor nominal de \SI{5}{\volt}, mientras que la tensión pico a pico del rizado es de aproximadamente \SI{600}{\milli\volt}, significativamente menor que la observada tras el filtrado capacitivo.
+
+Estos resultados confirman el correcto funcionamiento del regulador, que reduce las variaciones de la señal de entrada y proporciona una tensión de salida mucho más estable.
 %----------------------------------------
 \subsection{Cuestiones}
 
